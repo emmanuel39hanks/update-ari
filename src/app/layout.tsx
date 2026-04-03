@@ -13,13 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ari | @stiziyo — Creative Content",
+  title: "Room Nine Studios | Creative Agency & Brand Content Production in Lusaka",
   description:
-    "Official site for Ari (@stiziyo). Explore creative content, collaborations, and connect.",
+    "Room Nine Studios is a strategic content and production agency in Lusaka creating high-impact video, design, and audio campaigns for forward-thinking brands.",
   openGraph: {
-    title: "Ari | @stiziyo",
-    description: "Creative content by Ari. Photography, videography, and more.",
+    title: "Room Nine Studios | Creative Agency in Lusaka",
+    description:
+      "Strategic content and production agency helping brands tell stories that matter.",
     type: "website",
+    images: ["/assets/og_image.png"],
   },
 };
 
