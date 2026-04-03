@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -13,59 +11,28 @@ import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollAnimations from "@/components/ScrollAnimations";
+import { CDN } from "@/lib/cdn";
 
-function getGalleryItems(): GalleryItem[] {
-  const ariDir = path.join(process.cwd(), "public/content/pictures");
-  const jayDir = path.join(process.cwd(), "public/content/jay/pictures");
-
-  const ariFiles = fs.existsSync(ariDir)
-    ? fs.readdirSync(ariDir)
-        .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
-        .filter((f) => !f.startsWith("placeholder") && !f.startsWith("profile_pic"))
-        .filter((f) => f.endsWith("_0.jpg") || !/_\d+\.jpg$/.test(f))
-    : [];
-
-  const jayFiles = fs.existsSync(jayDir)
-    ? fs.readdirSync(jayDir)
-        .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
-        .filter((f) => !f.startsWith("profile_pic"))
-    : [];
-
-  const spans: Array<"tall" | "wide" | "normal"> = [
-    "tall", "normal", "normal", "wide", "normal", "tall",
-    "normal", "normal", "wide", "normal", "tall", "normal",
-  ];
-
-  const ariItems: GalleryItem[] = ariFiles.slice(0, 12).map((f, i) => ({
-    src: `/content/pictures/${f}`,
-    alt: `Ari @stiziyo - Room Nine Studios`,
-    span: spans[i % spans.length],
-  }));
-
-  const jayItems: GalleryItem[] = jayFiles.slice(0, 4).map((f, i) => ({
-    src: `/content/jay/pictures/${f}`,
-    alt: `Jay @jaytrigga_official - Room Nine Studios`,
-    span: spans[(i + 3) % spans.length],
-  }));
-
-  const mixed: GalleryItem[] = [];
-  let ai = 0, ji = 0;
-  for (let i = 0; i < ariItems.length + jayItems.length; i++) {
-    if (i % 4 === 2 && ji < jayItems.length) {
-      mixed.push(jayItems[ji++]);
-    } else if (ai < ariItems.length) {
-      mixed.push(ariItems[ai++]);
-    } else if (ji < jayItems.length) {
-      mixed.push(jayItems[ji++]);
-    }
-  }
-
-  return mixed;
-}
+const GALLERY_ITEMS: GalleryItem[] = [
+  { src: `${CDN}/content/pictures/pic_C2c1mYBIMbe.jpg`, alt: "Room Nine Studios", span: "tall" },
+  { src: `${CDN}/content/pictures/pic_C35knXSIpTy_0.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/jay/pictures/pic_DVtdqnAjZm2.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_C5gzJe4oMi2.jpg`, alt: "Room Nine Studios", span: "wide" },
+  { src: `${CDN}/content/pictures/pic_C82PXTOoh3X.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/jay/pictures/pic_DVwB7ctjPHD.jpg`, alt: "Room Nine Studios", span: "tall" },
+  { src: `${CDN}/content/pictures/pic_C8fJEJkoxc3_0.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_CmOsXc8IX6P.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_CqGs1k6ou9i.jpg`, alt: "Room Nine Studios", span: "wide" },
+  { src: `${CDN}/content/pictures/pic_DIzRigaouSo.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_DKzu5aUoFgS.jpg`, alt: "Room Nine Studios", span: "tall" },
+  { src: `${CDN}/content/pictures/pic_DKsWN_3Ib-E.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_DO6XP-VjOux.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_DSc5kveDOIr.jpg`, alt: "Room Nine Studios", span: "wide" },
+  { src: `${CDN}/content/pictures/pic_DSfcg0wDSMz.jpg`, alt: "Room Nine Studios", span: "normal" },
+  { src: `${CDN}/content/pictures/pic_DSm320djHNK.jpg`, alt: "Room Nine Studios", span: "tall" },
+];
 
 export default function Home() {
-  const galleryItems = getGalleryItems();
-
   return (
     <>
       <Navbar />
@@ -77,7 +44,7 @@ export default function Home() {
         <Services />
         <Work />
         <HorizontalShowcase />
-        <Gallery items={galleryItems} />
+        <Gallery items={GALLERY_ITEMS} />
         <Team />
         <Clients />
         <Contact />

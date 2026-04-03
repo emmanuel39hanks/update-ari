@@ -8,14 +8,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const SHOWCASE_IMAGES = [
-  "/content/pictures/pic_DRuehg2DB4E_0.jpg",
-  "/content/pictures/pic_DSu5UcAjMhM_0.jpg",
-  "/content/jay/pictures/pic_DVwB7ctjPHD.jpg",
-  "/content/pictures/pic_DQOkg-njYLg_0.jpg",
-  "/content/pictures/pic_DNNpMyMMNrw_0.jpg",
-  "/content/jay/pictures/pic_DVtdqnAjZm2.jpg",
-  "/content/pictures/pic_DVwB7ctjPHD_0.jpg",
-  "/content/pictures/pic_DMAhPmfotm9_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DRuehg2DB4E_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DSu5UcAjMhM_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/jay/pictures/pic_DVwB7ctjPHD.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DQOkg-njYLg_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DNNpMyMMNrw_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/jay/pictures/pic_DVtdqnAjZm2.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DVwB7ctjPHD_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DMAhPmfotm9_0.jpg",
 ];
 
 export default function HorizontalShowcase() {

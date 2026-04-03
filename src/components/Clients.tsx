@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 const CLIENTS = [
-  { name: "Nandos", logo: "/assets/clients/nandos.jpg" },
-  { name: "Ecobank", logo: "/assets/clients/ecobank.jpg" },
-  { name: "GIZ", logo: "/assets/clients/giz.jpg" },
-  { name: "Amarula", logo: "/assets/clients/amarula.jpg" },
-  { name: "Cremosa", logo: "/assets/clients/cremosa.jpg" },
-  { name: "Daytona SA", logo: "/assets/clients/daytona.jpg" },
-  { name: "United Nations", logo: "/assets/clients/un.jpg" },
-  { name: "Alive & Kicking Zambia", logo: "/assets/clients/alive_kicking.jpg" },
-  { name: "Lusaka Thrift Market", logo: "/assets/clients/lusaka_thrift.jpg" },
+  { name: "Nandos", logo: "https://roomnine-cdn.vercel.app/assets/clients/nandos.jpg" },
+  { name: "Ecobank", logo: "https://roomnine-cdn.vercel.app/assets/clients/ecobank.jpg" },
+  { name: "GIZ", logo: "https://roomnine-cdn.vercel.app/assets/clients/giz.jpg" },
+  { name: "Amarula", logo: "https://roomnine-cdn.vercel.app/assets/clients/amarula.jpg" },
+  { name: "Cremosa", logo: "https://roomnine-cdn.vercel.app/assets/clients/cremosa.jpg" },
+  { name: "Daytona SA", logo: "https://roomnine-cdn.vercel.app/assets/clients/daytona.jpg" },
+  { name: "United Nations", logo: "https://roomnine-cdn.vercel.app/assets/clients/un.jpg" },
+  { name: "Alive & Kicking Zambia", logo: "https://roomnine-cdn.vercel.app/assets/clients/alive_kicking.jpg" },
+  { name: "Lusaka Thrift Market", logo: "https://roomnine-cdn.vercel.app/assets/clients/lusaka_thrift.jpg" },
 ];
 
 export default function Clients() {

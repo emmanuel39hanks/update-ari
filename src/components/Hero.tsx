@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const HERO_IMAGES = [
-  "/content/pictures/pic_DRuehg2DB4E_0.jpg",
-  "/content/pictures/pic_DSu5UcAjMhM_0.jpg",
-  "/content/pictures/pic_DNNpMyMMNrw_0.jpg",
-  "/content/pictures/pic_DVwB7ctjPHD_0.jpg",
-  "/content/pictures/pic_DMAhPmfotm9_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DRuehg2DB4E_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DSu5UcAjMhM_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DNNpMyMMNrw_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DVwB7ctjPHD_0.jpg",
+  "https://roomnine-cdn.vercel.app/content/pictures/pic_DMAhPmfotm9_0.jpg",
 ];
 
 export default function Hero() {
@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl">
           <div className="flex items-center gap-3 mb-6 animate-fade-up">
-            <Image src="/assets/logos/header_logo.png" alt="Room Nine" width={40} height={40} className="rounded" unoptimized />
+            <Image src="https://roomnine-cdn.vercel.app/assets/logos/header_logo.png" alt="Room Nine" width={40} height={40} className="rounded" unoptimized />
             <span className="text-white/50 text-xs font-mono tracking-[0.3em] uppercase">Room Nine Studios</span>
           </div>
 

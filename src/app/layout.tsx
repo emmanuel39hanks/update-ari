@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description:
       "Strategic content and production agency helping brands tell stories that matter.",
     type: "website",
-    images: ["/assets/og_image.png"],
+    images: ["https://roomnine-cdn.vercel.app/assets/og_image.png"],
   },
 };
 

@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 const PROJECTS = [
-  { title: "Ecobank Campaign", category: "Digital Marketing", image: "/content/pictures/pic_DUqZUifjMiP_0.jpg" },
-  { title: "Nandos Rebrand", category: "Visual Design", image: "/content/pictures/pic_DSu5UcAjMhM_0.jpg" },
-  { title: "GIZ Documentary", category: "Audio & Video", image: "/content/pictures/pic_DRuehg2DB4E_0.jpg" },
-  { title: "Amarula Launch", category: "Brand Content", image: "/content/pictures/pic_DNdYp5osLuB_0.jpg" },
-  { title: "Cremosa", category: "Digital Marketing", image: "/content/pictures/pic_DRH41ygDM0D_0.jpg" },
-  { title: "Daytona SA", category: "Visual Design", image: "/content/pictures/pic_DVwB7ctjPHD_0.jpg" },
+  { title: "Ecobank Campaign", category: "Digital Marketing", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DUqZUifjMiP_0.jpg" },
+  { title: "Nandos Rebrand", category: "Visual Design", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DSu5UcAjMhM_0.jpg" },
+  { title: "GIZ Documentary", category: "Audio & Video", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DRuehg2DB4E_0.jpg" },
+  { title: "Amarula Launch", category: "Brand Content", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DNdYp5osLuB_0.jpg" },
+  { title: "Cremosa", category: "Digital Marketing", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DRH41ygDM0D_0.jpg" },
+  { title: "Daytona SA", category: "Visual Design", image: "https://roomnine-cdn.vercel.app/content/pictures/pic_DVwB7ctjPHD_0.jpg" },
 ];
 
 export default function Work() {

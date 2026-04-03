@@ -32,7 +32,7 @@ export default function Navbar() {
       >
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/assets/logos/header_logo.png"
+            src="https://roomnine-cdn.vercel.app/assets/logos/header_logo.png"
             alt="Room Nine Studios"
             width={36}
             height={36}
