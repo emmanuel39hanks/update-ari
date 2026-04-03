@@ -125,36 +125,18 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Service cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Service list - compact */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4 mt-4">
           {SERVICES.map((service, i) => (
-            <div
-              key={i}
-              className="group p-8 rounded-2xl border border-white/8 hover:border-white/20 transition-all duration-300"
-            >
-              <div className="text-xs font-mono text-white/25 mb-6">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-white/40 text-sm leading-relaxed mb-6">{service.desc}</p>
-              <ul className="space-y-2">
+            <div key={i}>
+              <h3 className="text-sm font-bold text-white/70 mb-2">{service.title}</h3>
+              <ul className="space-y-1">
                 {service.items.map((item, j) => (
-                  <li key={j} className="text-sm text-white/50 flex items-start gap-2">
-                    <span className="text-white/20 mt-1">-</span>
-                    {item}
-                  </li>
+                  <li key={j} className="text-xs text-white/30">{item}</li>
                 ))}
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className="mt-12 p-8 rounded-2xl border border-white/8 text-center">
-          <h3 className="text-lg font-bold mb-2">Have something unique in mind?</h3>
-          <p className="text-white/40 text-sm">We offer tailored solutions for special projects.</p>
-          <a href="#contact" className="inline-block mt-4 px-6 py-2.5 rounded-full border border-white/20 text-sm hover:bg-white/5 transition-all">
-            Get in Touch
-          </a>
         </div>
       </div>
     </section>
