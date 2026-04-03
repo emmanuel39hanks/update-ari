@@ -26,8 +26,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:flex md:justify-center">
       {/* Mobile: full-width pill */}
       <div
-        className={`nav-pill transition-all duration-500 w-full md:w-auto px-4 md:px-3 flex items-center justify-between md:justify-start gap-2 ${
-          scrolled ? "py-2.5" : "py-3"
+        className={`nav-pill transition-all duration-500 w-full md:w-auto px-5 md:px-4 flex items-center justify-between md:justify-start gap-2 ${
+          scrolled ? "py-2.5" : "py-3.5"
         }`}
       >
         <Link href="/" className="flex items-center gap-2.5">

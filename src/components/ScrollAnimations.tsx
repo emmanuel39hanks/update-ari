@@ -17,7 +17,7 @@ export default function ScrollAnimations() {
         duration: 1,
         ease: "power3.out",
       });
-      gsap.from("#about p", {
+      gsap.from("#about > div > div:last-child p", {
         scrollTrigger: { trigger: "#about", start: "top 70%" },
         y: 40,
         opacity: 0,
@@ -25,7 +25,6 @@ export default function ScrollAnimations() {
         stagger: 0.15,
         ease: "power3.out",
       });
-      // About pillars stagger
       gsap.from("#about .hover-lift", {
         scrollTrigger: { trigger: "#about .hover-lift", start: "top 85%" },
         y: 60,
@@ -35,15 +34,19 @@ export default function ScrollAnimations() {
         ease: "power3.out",
       });
 
-      // --- SERVICES section: PIN & horizontal reveal ---
-      const serviceCards = gsap.utils.toArray<HTMLElement>("#services .group, #services [class*='border-white']");
+      // --- SERVICES: cards stagger in ---
+      gsap.from("#services h2", {
+        scrollTrigger: { trigger: "#services", start: "top 75%" },
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+      const serviceCards = gsap.utils.toArray<HTMLElement>("#services [class*='border-white']");
       if (serviceCards.length > 0) {
         gsap.from(serviceCards, {
-          scrollTrigger: {
-            trigger: "#services",
-            start: "top 60%",
-          },
-          y: 100,
+          scrollTrigger: { trigger: "#services", start: "top 60%" },
+          y: 80,
           opacity: 0,
           duration: 0.8,
           stagger: 0.15,
@@ -51,19 +54,7 @@ export default function ScrollAnimations() {
         });
       }
 
-      // --- SERVICES pinned text reveal ---
-      const servicesSection = document.querySelector("#services");
-      if (servicesSection) {
-        ScrollTrigger.create({
-          trigger: "#services",
-          start: "top top",
-          end: "bottom bottom",
-          pin: "#services h2",
-          pinSpacing: false,
-        });
-      }
-
-      // --- WORK section: scale-in cards ---
+      // --- WORK: scale-in cards ---
       const workCards = gsap.utils.toArray<HTMLElement>("#work .hover-lift");
       gsap.from(workCards, {
         scrollTrigger: { trigger: "#work", start: "top 70%" },
@@ -78,15 +69,15 @@ export default function ScrollAnimations() {
       const galleryItems = gsap.utils.toArray<HTMLElement>("#gallery .hover-lift");
       galleryItems.forEach((item, i) => {
         gsap.from(item, {
-          scrollTrigger: { trigger: item, start: "top 90%" },
-          y: 50 + (i % 3) * 20,
+          scrollTrigger: { trigger: item, start: "top 92%" },
+          y: 40 + (i % 3) * 15,
           opacity: 0,
           duration: 0.6,
           ease: "power2.out",
         });
       });
 
-      // --- TEAM: circular reveals ---
+      // --- TEAM: bounce in ---
       const teamMembers = gsap.utils.toArray<HTMLElement>("#team .group");
       gsap.from(teamMembers, {
         scrollTrigger: { trigger: "#team", start: "top 70%" },
@@ -98,8 +89,8 @@ export default function ScrollAnimations() {
         ease: "back.out(1.4)",
       });
 
-      // --- CLIENTS: logo marquee stagger ---
-      const clientLogos = gsap.utils.toArray<HTMLElement>("#clients [class*='aspect-']");
+      // --- CLIENTS: logo stagger ---
+      const clientLogos = gsap.utils.toArray<HTMLElement>("#clients .hover-lift");
       gsap.from(clientLogos, {
         scrollTrigger: { trigger: "#clients", start: "top 75%" },
         y: 30,
@@ -118,41 +109,11 @@ export default function ScrollAnimations() {
         ease: "power3.out",
       });
       gsap.from("#contact form", {
-        scrollTrigger: { trigger: "#contact", start: "top 60%" },
+        scrollTrigger: { trigger: "#contact form", start: "top 80%" },
         x: 60,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-      });
-
-      // --- Horizontal line that grows across sections ---
-      const sections = gsap.utils.toArray<HTMLElement>("section");
-      sections.forEach((section) => {
-        const heading = section.querySelector("h2");
-        if (heading) {
-          gsap.from(heading, {
-            scrollTrigger: {
-              trigger: heading,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-            clipPath: "inset(0 100% 0 0)",
-            duration: 1.2,
-            ease: "power4.inOut",
-          });
-        }
-      });
-
-      // --- Parallax on hero ---
-      gsap.to(".hero-parallax", {
-        scrollTrigger: {
-          trigger: ".hero-parallax",
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-        y: 150,
-        scale: 1.1,
       });
     });
 
