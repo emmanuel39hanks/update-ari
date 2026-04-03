@@ -36,6 +36,17 @@ yarn-error.log*
 # vercel
 .vercel
 
+# python
+/venv
+__pycache__
+
+# sensitive
+ig_cookies.json
+ig_session.json
+
+# raw downloads (keep public/content for deploy)
+/content/raw
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
