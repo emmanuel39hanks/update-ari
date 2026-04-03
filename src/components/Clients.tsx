@@ -26,17 +26,17 @@ export default function Clients() {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 md:gap-6 items-center justify-items-center">
           {CLIENTS.map((client, i) => (
             <div
               key={i}
-              className="w-full aspect-[3/2] relative rounded-xl overflow-hidden bg-surface p-4 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              className="w-full aspect-square relative rounded-2xl overflow-hidden bg-white border border-black/5 hover-lift flex items-center justify-center"
             >
               <Image
                 src={client.logo}
                 alt={client.name}
                 fill
-                className="object-contain p-4"
+                className="object-contain p-5"
                 unoptimized
               />
             </div>

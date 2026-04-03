@@ -3,13 +3,16 @@ import path from "path";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import PinnedReveal from "@/components/PinnedReveal";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
+import HorizontalShowcase from "@/components/HorizontalShowcase";
 import Gallery, { type GalleryItem } from "@/components/Gallery";
 import Team from "@/components/Team";
 import Clients from "@/components/Clients";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollAnimations from "@/components/ScrollAnimations";
 
 function getGalleryItems(): GalleryItem[] {
   const ariDir = path.join(process.cwd(), "public/content/pictures");
@@ -33,8 +36,7 @@ function getGalleryItems(): GalleryItem[] {
     "normal", "normal", "wide", "normal", "tall", "normal",
   ];
 
-  // Mix Ari and Jay content
-  const ariItems: GalleryItem[] = ariFiles.slice(0, 14).map((f, i) => ({
+  const ariItems: GalleryItem[] = ariFiles.slice(0, 12).map((f, i) => ({
     src: `/content/pictures/${f}`,
     alt: `Ari @stiziyo - Room Nine Studios`,
     span: spans[i % spans.length],
@@ -46,7 +48,6 @@ function getGalleryItems(): GalleryItem[] {
     span: spans[(i + 3) % spans.length],
   }));
 
-  // Interleave
   const mixed: GalleryItem[] = [];
   let ai = 0, ji = 0;
   for (let i = 0; i < ariItems.length + jayItems.length; i++) {
@@ -68,11 +69,14 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <ScrollAnimations />
       <main>
         <Hero />
         <About />
+        <PinnedReveal />
         <Services />
         <Work />
+        <HorizontalShowcase />
         <Gallery items={galleryItems} />
         <Team />
         <Clients />
