@@ -79,6 +79,10 @@ html { scroll-behavior: smooth; }
   animation: marquee 30s linear infinite;
 }
 
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Morph text */
 @keyframes morph-scale {
   0%, 100% { transform: scaleX(1) scaleY(1); opacity: 1; }

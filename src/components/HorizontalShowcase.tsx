@@ -27,8 +27,11 @@ export default function HorizontalShowcase() {
     const track = trackRef.current;
     if (!container || !track) return;
 
-    const ctx = gsap.context(() => {
-      const totalScroll = track.scrollWidth - window.innerWidth;
+    // Only pin on desktop (768px+)
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      const totalScroll = track.scrollWidth - container.offsetWidth;
 
       gsap.to(track, {
         x: -totalScroll,
@@ -42,45 +45,28 @@ export default function HorizontalShowcase() {
           anticipatePin: 1,
         },
       });
-
-      // Parallax on each card
-      const cards = track.querySelectorAll(".showcase-card");
-      cards.forEach((card) => {
-        const img = card.querySelector("img");
-        if (img) {
-          gsap.fromTo(
-            img,
-            { scale: 1.3 },
-            {
-              scale: 1,
-              ease: "none",
-              scrollTrigger: {
-                trigger: card,
-                containerAnimation: gsap.getById?.("horizontal") || undefined,
-                start: "left right",
-                end: "right left",
-                scrub: 1,
-              },
-            }
-          );
-        }
-      });
     });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
     <div ref={containerRef} className="relative overflow-hidden bg-black">
-      {/* Header */}
-      <div className="absolute top-8 left-6 md:left-12 z-10">
+      {/* Header label */}
+      <div className="px-6 md:px-12 pt-10 md:pt-0 md:absolute md:top-8 md:left-12 z-10">
         <p className="text-white/25 text-xs font-mono tracking-[0.4em] uppercase">Featured Content</p>
       </div>
 
-      <div ref={trackRef} className="flex gap-5 p-8 items-center h-screen">
-        {/* Leading spacer */}
-        <div className="shrink-0 w-[20vw] flex items-center">
-          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight whitespace-nowrap">
+      {/* Mobile: horizontal scroll strip */}
+      {/* Desktop: GSAP pinned horizontal scroll */}
+      <div
+        ref={trackRef}
+        className="flex gap-4 md:gap-5 px-6 md:p-8 pb-10 md:pb-8 items-center md:h-screen overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {/* Title */}
+        <div className="shrink-0 w-[60vw] md:w-[20vw] flex items-center py-10 md:py-0">
+          <h2 className="text-3xl md:text-6xl font-black text-white tracking-tighter leading-tight">
             Our<br />Visual<br />Work
           </h2>
         </div>
@@ -88,7 +74,7 @@ export default function HorizontalShowcase() {
         {SHOWCASE_IMAGES.map((src, i) => (
           <div
             key={i}
-            className="showcase-card shrink-0 w-[70vw] md:w-[40vw] lg:w-[30vw] h-[70vh] rounded-2xl overflow-hidden relative"
+            className="showcase-card shrink-0 w-[75vw] md:w-[35vw] lg:w-[28vw] h-[50vh] md:h-[70vh] rounded-2xl overflow-hidden relative snap-center"
           >
             <Image
               src={src}
@@ -101,8 +87,7 @@ export default function HorizontalShowcase() {
           </div>
         ))}
 
-        {/* Trailing spacer */}
-        <div className="shrink-0 w-[20vw]" />
+        <div className="shrink-0 w-6 md:w-[10vw]" />
       </div>
     </div>
   );
